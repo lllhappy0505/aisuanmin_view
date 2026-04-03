@@ -1,0 +1,143 @@
+/* components/floating-ball/floating-ball.wxss */
+.floating-ball-container {
+  position: fixed;
+  top: 300rpx;
+  right: 30rpx;
+  z-index: 9999;
+}
+
+.ball-menu {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.ball-menu-item {
+  position: absolute;
+  width: 73rpx;
+  height: 73rpx;
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 16rpx rgba(139, 0, 0, 0.4);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  opacity: 0;
+  transform: translateX(0) scale(0);
+  cursor: pointer;
+}
+
+.ball-menu-item:active {
+  transform: translateY(0) scale(0.95) !important;
+}
+
+.menu-icon {
+  font-size: 24rpx;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+
+.main-ball {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100rpx;
+  height: 100rpx;
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 24rpx rgba(139, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.main-ball::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: ballShine 3s infinite;
+}
+
+@keyframes ballShine {
+  0% {
+    transform: rotate(45deg) translateX(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateX(100%);
+  }
+}
+
+.main-ball:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.ball-icon {
+  width: 80rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.ball-icon.open {
+  animation: ballRotate 8s linear infinite;
+}
+
+.ball-icon.close {
+  animation: none;
+}
+
+@keyframes ballRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-text {
+  font-size: 40rpx;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 2rpx 2rpx 4rpx rgba(0, 0, 0, 0.3);
+}
+
+.ball-menu.expanded .ball-menu-item {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.ball-menu.expanded .ball-menu-item:nth-child(1) {
+  transform: translateX(-140rpx) translateY(-120rpx) scale(1);
+}
+
+.ball-menu.expanded .ball-menu-item:nth-child(2) {
+  transform: translateX(-200rpx) translateY(-30rpx) scale(1);
+}
+
+.ball-menu.expanded .ball-menu-item:nth-child(3) {
+  transform: translateX(-140rpx) translateY(50rpx) scale(1);
+}

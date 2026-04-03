@@ -1,6 +1,7 @@
 <!--result.wxml-->
 <wxs module="utils" src="./result.wxs"></wxs>
 <navigation-bar title="排盘结果" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<floating-ball bind:menuclick="onMenuClick"></floating-ball>
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
     <view class="background-pattern"></view>

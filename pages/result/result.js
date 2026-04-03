@@ -32,6 +32,25 @@ Page({
     return '暂无数据';
   },
 
+  // 处理悬浮球菜单点击
+  onMenuClick(e) {
+    const { type, typeName } = e.detail;
+
+    wx.showToast({
+      title: `您选择了算${typeName}`,
+      icon: 'none',
+      duration: 2000
+    });
+
+    // 这里可以添加相应的业务逻辑
+    console.log('点击了菜单:', type, typeName);
+
+    // 示例：可以跳转到相应的详情页面
+    // wx.navigateTo({
+    //   url: `/pages/detail/detail?type=${type}&typeName=${typeName}`
+    // });
+  },
+
   onBack() {
     wx.navigateBack();
   }

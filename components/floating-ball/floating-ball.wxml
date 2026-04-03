@@ -1,0 +1,22 @@
+<!--components/floating-ball/floating-ball.wxml-->
+<view class="floating-ball-container">
+  <!-- 展开的按钮菜单 -->
+  <view class="ball-menu {{isExpanded ? 'expanded' : ''}}">
+    <view class="ball-menu-item" bindtap="onItemClick" data-type="career">
+      <view class="menu-icon">事业</view>
+    </view>
+    <view class="ball-menu-item" bindtap="onItemClick" data-type="love">
+      <view class="menu-icon">姻缘</view>
+    </view>
+    <view class="ball-menu-item" bindtap="onItemClick" data-type="study">
+      <view class="menu-icon">学业</view>
+    </view>
+  </view>
+
+  <!-- 主悬浮球 -->
+  <view class="main-ball {{isExpanded ? 'expanded' : ''}}" bindtap="onToggleExpand">
+    <view class="ball-icon {{isExpanded ? 'close' : 'open'}}">
+      <text class="icon-text">{{isExpanded ? '✕' : '☯'}}</text>
+    </view>
+  </view>
+</view>
