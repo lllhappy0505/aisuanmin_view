@@ -1,0 +1,182 @@
+<!--result.wxml-->
+<wxs module="utils" src="./result.wxs"></wxs>
+<navigation-bar title="排盘结果" back="{{true}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="background-pattern"></view>
+
+    <view class="header-section">
+      <view class="title-decoration"></view>
+      <text class="result-title">八字排盘结果</text>
+      <view class="title-decoration"></view>
+      <text class="user-info">{{resultData.baseinfo.name}} · {{resultData.baseinfo.sex}} · {{resultData.baseinfo.shengxiao}}</text>
+    </view>
+
+    <view class="birthday-info">
+      <text class="birthday-text">阳历：{{resultData.baseinfo.gongli}} · 农历：{{resultData.baseinfo.nongli}}</text>
+    </view>
+
+    <view class="bazi-section">
+      <view class="section-header">
+        <text class="section-title">八字排盘</text>
+      </view>
+      <view class="bazi-table">
+        <view class="bazi-header">
+          <text class="header-item">年柱</text>
+          <text class="header-item">月柱</text>
+          <text class="header-item">日柱</text>
+          <text class="header-item">时柱</text>
+        </view>
+        <view class="bazi-row">
+          <text class="bazi-item">{{resultData.sizhu.gans.year}}{{resultData.sizhu.zhis.year}}</text>
+          <text class="bazi-item">{{resultData.sizhu.gans.month}}{{resultData.sizhu.zhis.month}}</text>
+          <text class="bazi-item">{{resultData.sizhu.gans.day}}{{resultData.sizhu.zhis.day}}</text>
+          <text class="bazi-item">{{resultData.sizhu.gans.time}}{{resultData.sizhu.zhis.time}}</text>
+        </view>
+        <view class="bazi-row">
+          <text class="bazi-item">{{resultData.sizhu.na_yin[0]}}</text>
+          <text class="bazi-item">{{resultData.sizhu.na_yin[1]}}</text>
+          <text class="bazi-item">{{resultData.sizhu.na_yin[2]}}</text>
+          <text class="bazi-item">{{resultData.sizhu.na_yin[3]}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="wuxing-section">
+      <view class="section-header">
+        <text class="section-title">基本信息</text>
+      </view>
+      <view class="wuxing-content">
+        <view class="info-row">
+          <text class="info-label">命宫：</text>
+          <text class="info-value">{{resultData.baseinfo.mingGong}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">胎元：</text>
+          <text class="info-value">{{resultData.baseinfo.taiYuan}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">身宫：</text>
+          <text class="info-value">{{resultData.baseinfo.shenGong}}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">四柱：</text>
+          <text class="info-value">{{resultData.sizhu.ext1}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="detail-section">
+      <view class="section-header">
+        <text class="section-title">干支神煞</text>
+      </view>
+      <view class="detail-content">
+        <view class="detail-item">
+          <text class="detail-label">天干冲合：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.gan_shens_chonghe, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">地支旺衰：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.zhi_wangshuai, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">纳音五行：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.na_yin, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">神煞星：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.strs, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">天干十神：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.gan_shens, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">地支十神：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.zhi_shens, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">六害六合：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.liuqin_liuhe, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">会破：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.hui_po, ' | ')}}</text>
+        </view>
+        <view class="detail-item">
+          <text class="detail-label">强弱：</text>
+          <text class="detail-value">{{utils.safeJoin(resultData.sizhu.qiang_ruo, ' | ')}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="dayun-section">
+      <view class="section-header">
+        <text class="section-title">大运排盘</text>
+      </view>
+      <view class="dayun-content">
+        <view class="dayun-item" wx:for="{{resultData.daYun}}" wx:key="index">
+          <view class="dayun-header">
+            <text class="dayun-title">{{item.startAge}}岁</text>
+            <text class="dayun-ganzhi">{{item.ganZhi}}</text>
+          </view>
+          <view class="dayun-info">
+            <text class="dayun-detail">长生：{{item.changSheng}}</text>
+            <text class="dayun-detail">纳音：{{item.na_yin}}</text>
+          </view>
+          <view class="dayun-footer">
+            <text class="dayun-extra">{{item.strs}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="zang-section">
+      <view class="section-header">
+        <text class="section-title">脏腑五行</text>
+      </view>
+      <view class="zang-content">
+        <view class="zang-row">
+          <view class="zang-item {{resultData.zangs.gang ? 'active' : ''}}">
+            <text class="zang-name">肝</text>
+          </view>
+          <view class="zang-item {{resultData.zangs.dan ? 'active' : ''}}">
+            <text class="zang-name">胆</text>
+          </view>
+        </view>
+        <view class="zang-row">
+          <view class="zang-item {{resultData.zangs.xin ? 'active' : ''}}">
+            <text class="zang-name">心</text>
+          </view>
+          <view class="zang-item {{resultData.zangs.xiaochang ? 'active' : ''}}">
+            <text class="zang-name">小肠</text>
+          </view>
+        </view>
+        <view class="zang-row">
+          <view class="zang-item {{resultData.zangs.spleen ? 'active' : ''}}">
+            <text class="zang-name">脾</text>
+          </view>
+          <view class="zang-item {{resultData.zangs.wei ? 'active' : ''}}">
+            <text class="zang-name">胃</text>
+          </view>
+        </view>
+        <view class="zang-row">
+          <view class="zang-item {{resultData.zangs.fei ? 'active' : ''}}">
+            <text class="zang-name">肺</text>
+          </view>
+          <view class="zang-item {{resultData.zangs.dachang ? 'active' : ''}}">
+            <text class="zang-name">大肠</text>
+          </view>
+        </view>
+        <view class="zang-row">
+          <view class="zang-item {{resultData.zangs.shen ? 'active' : ''}}">
+            <text class="zang-name">肾</text>
+          </view>
+          <view class="zang-item {{resultData.zangs.pangguang ? 'active' : ''}}">
+            <text class="zang-name">膀胱</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

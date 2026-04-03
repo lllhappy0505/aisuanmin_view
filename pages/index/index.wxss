@@ -1,0 +1,243 @@
+/* index.wxss */
+.scrollarea {
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 20rpx;
+  min-height: 100vh;
+  position: relative;
+}
+
+.background-pattern {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(135deg, rgba(139, 0, 0, 0.03) 0%, rgba(220, 20, 60, 0.05) 100%),
+    url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><text x="10" y="50" font-size="60" fill="rgba(139,0,0,0.1)">☯</text></svg>');
+  background-size: cover, 100px 100px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.title-section {
+  text-align: center;
+  padding: 60rpx 0 40rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.title-decoration {
+  width: 120rpx;
+  height: 4rpx;
+  background: linear-gradient(90deg, transparent, #8B0000, transparent);
+  margin: 20rpx auto;
+}
+
+.main-title {
+  display: block;
+  font-size: 52rpx;
+  font-weight: bold;
+  color: #8B0000;
+  margin-bottom: 16rpx;
+  letter-spacing: 4rpx;
+  text-shadow: 2rpx 2rpx 4rpx rgba(139, 0, 0, 0.1);
+}
+
+.sub-title {
+  display: block;
+  font-size: 26rpx;
+  color: #8B0000;
+  opacity: 0.7;
+  letter-spacing: 2rpx;
+}
+
+.form-section {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-shadow: 0 8rpx 24rpx rgba(139, 0, 0, 0.15);
+  border: 2rpx solid #DC143C;
+  position: relative;
+  z-index: 1;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 40rpx;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #DC143C;
+}
+
+.form-header-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #8B0000;
+  letter-spacing: 4rpx;
+}
+
+.form-item {
+  margin-bottom: 40rpx;
+}
+
+.form-item:last-child {
+  margin-bottom: 0;
+}
+
+.form-label {
+  display: block;
+  font-size: 32rpx;
+  color: #8B0000;
+  margin-bottom: 20rpx;
+  font-weight: 500;
+  letter-spacing: 2rpx;
+}
+
+.form-input {
+  width: 100%;
+  height: 88rpx;
+  background: #FFF8F8;
+  border: 2rpx solid #E8D0D0;
+  border-radius: 8rpx;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.form-input:focus {
+  border-color: #DC143C;
+  background: #FFF;
+}
+
+.radio-group {
+  display: flex;
+  gap: 24rpx;
+}
+
+.radio-item {
+  flex: 1;
+  height: 88rpx;
+  background: #FFF8F8;
+  border: 2rpx solid #E8D0D0;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+  color: #666;
+  transition: all 0.3s;
+}
+
+.radio-item.active {
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+  color: #fff;
+  border-color: #8B0000;
+  box-shadow: 0 4rpx 12rpx rgba(139, 0, 0, 0.3);
+}
+
+.date-inputs {
+  display: flex;
+  gap: 16rpx;
+}
+
+.date-input-group {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  background: #FFF8F8;
+  border: 2rpx solid #E8D0D0;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.date-input {
+  flex: 1;
+  height: 88rpx;
+  background: transparent;
+  padding: 0 16rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.date-unit {
+  padding: 0 16rpx;
+  font-size: 28rpx;
+  color: #8B0000;
+}
+
+.picker {
+  height: 88rpx;
+  background: #FFF8F8;
+  border: 2rpx solid #E8D0D0;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.button-section {
+  margin-top: 60rpx;
+  position: relative;
+  z-index: 1;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 96rpx;
+  background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+  color: #fff;
+  border: none;
+  border-radius: 48rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 20rpx rgba(139, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 150%;
+  }
+}
+
+.submit-btn::after {
+  border: none;
+}
+
+.btn-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  letter-spacing: 4rpx;
+}

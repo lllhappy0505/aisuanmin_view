@@ -1,0 +1,78 @@
+<!--index.wxml-->
+<navigation-bar title="八字排盘" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="background-pattern"></view>
+
+    <view class="title-section">
+      <view class="title-decoration"></view>
+      <text class="main-title">八字排盘</text>
+      <view class="title-decoration"></view>
+      <text class="sub-title">输入您的出生信息，获取命理分析</text>
+    </view>
+
+    <view class="form-section">
+      <view class="form-item">
+        <text class="form-label">姓名</text>
+        <input class="form-input" type="text" placeholder="请输入姓名" value="{{name}}" bindinput="onNameInput" />
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">性别</text>
+        <view class="radio-group">
+          <view class="radio-item {{sex === '男' ? 'active' : ''}}" bindtap="onSexSelect" data-value="男">
+            <text>男</text>
+          </view>
+          <view class="radio-item {{sex === '女' ? 'active' : ''}}" bindtap="onSexSelect" data-value="女">
+            <text>女</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">历法</text>
+        <view class="radio-group">
+          <view class="radio-item {{lifa === '农历' ? 'active' : ''}}" bindtap="onLifaSelect" data-value="农历">
+            <text>农历</text>
+          </view>
+          <view class="radio-item {{lifa === '阳历' ? 'active' : ''}}" bindtap="onLifaSelect" data-value="阳历">
+            <text>阳历</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">出生日期</text>
+        <view class="date-inputs">
+          <view class="date-input-group">
+            <input class="form-input date-input" type="number" placeholder="年" value="{{year}}" bindinput="onYearInput" />
+            <text class="date-unit">年</text>
+          </view>
+          <view class="date-input-group">
+            <input class="form-input date-input" type="number" placeholder="月" value="{{month}}" bindinput="onMonthInput" />
+            <text class="date-unit">月</text>
+          </view>
+          <view class="date-input-group">
+            <input class="form-input date-input" type="number" placeholder="日" value="{{day}}" bindinput="onDayInput" />
+            <text class="date-unit">日</text>
+          </view>
+        </view>
+      </view>
+
+      <view class="form-item">
+        <text class="form-label">出生时辰</text>
+        <picker mode="selector" range="{{timeOptions}}" range-key="label" value="{{timeIndex}}" bindchange="onTimeChange">
+          <view class="picker">
+            {{timeOptions[timeIndex].label}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <view class="button-section">
+      <button class="submit-btn" bindtap="onSubmit">
+        <text class="btn-text">八字排盘</text>
+      </button>
+    </view>
+  </view>
+</scroll-view>

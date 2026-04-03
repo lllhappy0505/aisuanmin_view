@@ -1,0 +1,10 @@
+/**app.wxss**/
+page {
+  background: linear-gradient(135deg, #FFF8F8 0%, #FFE8E8 100%);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+.scrollarea {
+  height: 100vh;
+  width: 100vw;
+}

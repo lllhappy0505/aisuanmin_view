@@ -1,0 +1,11 @@
+// result.wxs
+var safeJoin = function(array, separator) {
+  if (array && array.length > 0) {
+    return array.join(separator);
+  }
+  return '暂无数据';
+};
+
+module.exports = {
+  safeJoin: safeJoin
+};
